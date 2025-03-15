@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Gutenberg Block
  * Description: A simple custom Gutenberg block.
- * Version: 1.0.0
+ * Version: 2.0.0
  * Author: Your Name
  */
 
@@ -36,6 +36,10 @@ function custom_gutenberg_block_register() {
             'textColor' => array(
                 'type' => 'string',
                 'default' => '#000000'
+            ),
+            'backgroundColor' => array(
+                'type' => 'string',
+                'default' => '#ffffff'
             )
         ),
         'render_callback' => 'custom_gutenberg_block_render'
@@ -46,5 +50,6 @@ add_action('init', 'custom_gutenberg_block_register');
 function custom_gutenberg_block_render($attributes) {
     $content = esc_html($attributes['content']);
     $textColor = esc_attr($attributes['textColor']);
-    return "<p style='color: {$textColor};'>{$content}</p>";
+    $backgroundColor = esc_attr($attributes['backgroundColor']);
+    return "<p style='color: {$textColor}; background-color: {$backgroundColor}; padding: 10px;'>{$content}</p>";
 }
