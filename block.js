@@ -6,7 +6,7 @@ const { __ } = wp.i18n;
 registerBlockType("custom/block", {
     title: __("Custom Block", "custom-block"),
     icon: "admin-customizer",
-    category: "common",
+    category: "widgets",
     attributes: {
         content: {
             type: "string",
